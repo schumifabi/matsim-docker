@@ -22,6 +22,7 @@ COPY --from=build ${APP_DIR}/target/*-jar-with-dependencies.jar ./matsim.jar
 ENV MATSIM_HOME=${APP_DIR} \
     MATSIM_INPUT=${APP_DIR}/data/input \
     MATSIM_OUTPUT=${APP_DIR}/data/output
+ENV JAVA_OPTS="-XX:MinRAMPercentage=70 -XX:MaxRAMPercentage=80"
 RUN apt-get update && apt-get install -y \
     libfreetype6 \
     libfontconfig1 \
