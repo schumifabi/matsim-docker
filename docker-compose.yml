@@ -8,6 +8,7 @@ services:
     - "10"
     environment:
       MATSIM_OUTPUT_OVERWRITE: "true"
+      - JVM_OPTS=-Xmx12g -Xms12g -XX:MinRAMPercentage=75  -XX:MaxRAMPercentage=80
     volumes:
     - type: bind
       source: ${PWD}/test/input
